@@ -1,0 +1,58 @@
+{
+  "HLT": {
+    "prefix": "HLT",
+    "body": ["HLT // Halt program"],
+    "description": "Insert Halt instruction"
+  },
+  "NOP": {
+    "prefix": "NOP",
+    "body": ["NOP // Does nothing for 1 cycle"],
+    "description": "Insert NOP instruction"
+  },
+  "LDA": {
+    "prefix": "LDA",
+    "body": ["LDA ${1:address} // Load accumulator from memory"],
+    "description": "Insert LDA instruction"
+  },
+  "STA": {
+    "prefix": "STA",
+    "body": ["STA ${1:address} // Store accumulator to memory"],
+    "description": "Insert STA instruction"
+  },
+  "ADD": {
+    "prefix": "ADD",
+    "body": ["ADD ${1:value} // Add value to accumulator"],
+    "description": "Insert ADD instruction"
+  },
+  "SUB": {
+    "prefix": "SUB",
+    "body": ["SUB ${1:value} // Subtract value from accumulator"],
+    "description": "Insert SUB instruction"
+  },
+  "JMP": {
+    "prefix": "JMP",
+    "body": ["JMP ${1:address} // Jump to address"],
+    "description": "Insert JMP instruction"
+  },
+  "JZE": {
+    "prefix": "JZE",
+    "body": ["JZE ${1:address} // Jump to address if A is 0"],
+    "description": "Insert JZE instruction"
+  },
+  "JZN": {
+    "prefix": "JZN",
+    "body": ["JZN ${1:address} // Jump to address if A is not 0"],
+    "description": "Insert JZN instruction"
+  },
+  "Template": {
+    "prefix": "prog",
+    "body": [
+      "// Simple MyCPU program",
+      "LDA ${1:addr1}",
+      "ADD ${2:addr2}",
+      "STA ${3:addrResult}",
+      "HLT"
+    ],
+    "description": "Insert a simple program template"
+  }
+}

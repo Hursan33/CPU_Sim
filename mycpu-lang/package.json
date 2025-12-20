@@ -1,0 +1,32 @@
+{
+  "name": "mycpu-lang",
+  "displayName": "MyCPU Assembly Language",
+  "description": "Syntax highlighting and comment support for a custom CPU instruction set",
+  "version": "0.0.1",
+  "publisher": "Hursan33",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Programming Languages"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "mycpu",
+        "aliases": ["MyCPU Assembly", "mycpu"],
+        "extensions": [".cpu"],
+        "configuration": "./language-configurations.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mycpu",
+        "scopeName": "source.cpu",
+        "path": "./mycpu.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "mycpu",
+        "path": "./snippets/mycpu.code-snippets"
+      }
+    ]
+  }
+}

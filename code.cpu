@@ -1,0 +1,51 @@
+//SETUP
+
+MVA 252
+STA 0
+
+MVA 96
+STA 1
+
+MVA 218
+STA 2
+
+MVA 242
+STA 3
+
+MVA 102
+STA 4
+
+MVA 182
+STA 5
+
+MVA 190
+STA 6
+
+MVA 224
+STA 7
+
+MVA 254
+STA 8
+
+MVA 246
+STA 9
+//CODE
+var variable 10
+
+MVA variable //you type the num to count down from here
+MOV ACC A
+
+:loop
+DEC A
+
+LDA A
+MOV ACC D
+
+JZN loop
+HLT 
+
+// MVA 5
+// INC B
+// STA 10
+// LDA 10
+// HLT

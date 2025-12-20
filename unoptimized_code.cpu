@@ -1,0 +1,88 @@
+//input in this instruction the number you want to show up
+MVA 10
+
+:loop
+SUB 1
+
+//0
+JZN one
+MVA 252
+MOV A D
+HLT
+
+:one
+SUB 1
+JZN two
+MVA 96
+MOV A D
+MVA 1
+JMP loop
+
+:two
+SUB 1
+JZN three
+MVA 218
+MOV A D
+MVA 2
+JMP loop
+
+:three
+SUB 1
+JZN four
+MVA 242
+MOV A D
+MVA 3
+JMP loop
+
+:four
+SUB 1
+JZN five
+MVA 102
+MOV A D
+MVA 4
+JMP loop
+
+:five
+SUB 1
+JZN six
+MVA 182
+MOV A D
+MVA 5
+JMP loop
+
+:six
+SUB 1
+JZN seven
+MVA 190
+MOV A D
+MVA 6
+JMP loop
+
+:seven
+SUB 1
+JZN eight
+MVA 224
+MOV A D
+MVA 7
+JMP loop
+
+:eight
+SUB 1
+JZN nine
+MVA 254
+MOV A D
+MVA 8
+JMP loop
+
+:nine
+SUB 1
+JZN err
+MVA 246
+MOV A D
+MVA 9
+JMP loop
+
+:err
+MVA 158
+MOV A D
+HLT

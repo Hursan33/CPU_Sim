@@ -1,0 +1,35 @@
+{
+  "scopeName": "source.cpu",
+  "name": "MyCPU Assembly",
+  "fileTypes": ["cpu"],
+  "patterns": [
+    {
+      "match": "\\b(NOP|MVA|MOV|ADD|SUB|STA|LDA|JMP|JZE|JZN|JOF|INC|DEC|HLT)\\b",
+      "name": "keyword.instruction.cpu"
+    },
+    {
+      "match": "//.*$",
+      "name": "comment.line.semicolon.cpu"
+    },
+    {
+      "match": "\\b[0-9]+\\b",
+      "name": "constant.numeric.cpu"
+    },
+    {
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*:\\b",
+      "name": "label.cpu"
+    },
+    {
+      "match": "\\b(var)\\b",
+      "name": "var.cpu"
+    },
+    {
+      "match": "\\b(A|B|C|D|ACC)\\b",
+      "name": "register.cpu"
+    },
+    {
+      "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+      "name": "label.cpu"
+    }
+  ]
+}
