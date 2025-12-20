@@ -1,6 +1,12 @@
 # CPU_Sim
 Simple cpu simulation designed in Digital
 
+To run the code compiled via the `compiler.py` file:
+```
+python3 compiler.py <your_file.cpu>
+```
+Add the program.hex file into the ROM component in `main.dig`.
+
 Please do not use the STR and LOD instructions, they are for internal use only, instead use STA and LDA which can be
 used with both register and specific address.
 
