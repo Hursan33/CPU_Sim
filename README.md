@@ -10,7 +10,7 @@ Add the program.hex file into the ROM component in `main.dig`.
 Please do not use the STR and LOD instructions, they are for internal use only, instead use STA and LDA which can be
 used with both register and specific address.
 
-To add the colors and text finishing install the mycpu_lang extension in the project and into user settings in vscode insert
+To add the colors and text finishing install the mycpu_lang extension in the project using `INSTALL from VSIX` option and into user settings in vscode insert
 ```
 "editor.tokenColorCustomizations": {
         "textMateRules": [
