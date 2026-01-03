@@ -72,14 +72,14 @@ The CPU currently supports 16 instructions:
 
 **NOTE:**
 
-**1.** The `MOV` instruction has two operands according to the table because, in the custom assembly language, it uses two operands. However, the processor itself sees only one operand byte. The upper 4 bits represent the source register and the lower 4 bits represent the destination register. This is also why the *OperandsCount* and *Operands* columns do not match.
+**1.** The `MOV` instruction has two operands according to the table, because in the custom assembly language it uses two operands. However, the processor itself sees only one operand byte. The upper 4 bits represent the source register and the lower 4 bits represent the destination register. This is also why the *OperandsCount* and *Operands* columns do not match.
 
 **2.** There are two instructions labeled as *internal use*: `STR` and `LOD`. These exist because the assembly language allows the user to specify both a register and a memory address for the `LDA` and `STA` instructions. The CPU needs a way to differentiate between an address byte and a register byte. These instructions are not intended to be used directly in user code; instead, `LDA` and `STA` should be used with both an address and a register.
 
 ---
 
 ## 4. Custom Assembly and Compiler
-Digital supports loading a hex file into memory components. This makes it possible to write assembly code, compile it using a Python script, and run it on the simulated CPU. To invoke the compiler, use:
+Digital supports loading a hex file into memory components. This makes it possible to write assembly code, compile it using a Python script, and run it on the simulated CPU. The script uses `.cpu` files. To invoke the compiler, use:
 
 ```
 python3 compiler.py <your_file>.cpu
@@ -127,6 +127,36 @@ Digital specifically uses the Intel HEX format, which is why the compiler relies
 
 ---
 
+### 4.3. VS Code Extension
+
+For ease of use, I created an extension you can install in Visual Studio Code via the `Extensions: Install from VSIX` command. This adds color support for `.cpu` files, keyboard shortcuts for commenting and even autofilling instructions. To get the full effect, the user needs to add:
+```
+"editor.tokenColorCustomizations": {
+    "textMateRules": [
+        {
+            "scope": "label.cpu",
+            "settings": {
+                "foreground": "#e63e49"
+            }
+        },
+        {
+            "scope": "register.cpu",
+            "settings": {
+                "foreground": "#f3b256"
+            }
+        },
+        {
+            "scope": "var.cpu",
+            "settings": {
+                "foreground": "#8cf5db"
+            }
+        }
+    ]
+}
+```
+to their `settings.json` file.
+---
+
 ## 5. Peripherals
 Peripherals available in the Digital software can be connected to the CPU registers. As an example, a seven-segment display is connected to register D. Although the registers are only 8 bits wide, there is nothing preventing the user from combining two registers and connecting them to a peripheral.
 
@@ -135,7 +165,7 @@ Peripherals available in the Digital software can be connected to the CPU regist
 ## 6. Issues
 The biggest challenges were related to the conceptual design. Determining how to select instructions, how they should be processed, and how data should be stored required significant effort. After creating a small prototype, development progressed much more smoothly. Having a base template for instruction implementation made adding new instructions easier.
 
-Another recurring issue involved fixing timing errors after refactoring. Occasionally, signals were accidentally connected directly to register components or vice versa, which disrupted the CPU timing. These issues were usually easy to fix but often took time to identify.
+Another recurring issue involved fixing timing errors after refactoring. Occasionally, signals were accidentally connected directly to output and not via a register or vice-versa, which disrupted the CPU timing. These issues were usually easy to fix but often took time to identify.
 
 ---
 
@@ -145,7 +175,7 @@ Another recurring issue involved fixing timing errors after refactoring. Occasio
 The number of registers could be increased. Currently, registers use 3 bits for identification, but 4 bits could be used instead, allowing up to 16 registers including the accumulator. The 4-bit limitation exists because of how the `MOV` instruction is implemented. If multiple operand bytes were supported, all 8 bits could be used for register addressing.
 
 ### 7.2. Instructions
-Currently, only about half of the available instruction codes are used. The instruction encoding could also be expanded, since only 1 bit is required to represent the operand count (0 or 1). This would leave 7 bits available for the instruction code itself.
+Currently I use 5 bits and only about half of the available instruction codes are used. The instruction encoding could also be expanded, since only 1 bit is required to represent the operand count (0 or 1). This would leave 7 bits available for the instruction code itself.
 
 ### 7.3. Operand Count
-At the beginning of the project, I considered supporting two operands per instruction. With the current counter-based setup, this should be possible with minor changes to the `EXECUTE` component. However, the focus was ultimately placed on accumulator-based operations.
+At the beginning of the project, I considered supporting two operands per instruction. With the current counter-based setup, this should be possible without completely rewiring the execution logic. However, the focus was ultimately placed on accumulator-based operations.
