@@ -1,6 +1,6 @@
 # Simulated CPU in Digital
 
-**Author:** 550273 – Daniel Huršan  
+**Author:** Daniel Huršan - 550273
 
 ---
 
