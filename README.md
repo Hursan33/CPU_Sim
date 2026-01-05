@@ -10,7 +10,7 @@ This project was created as a final assignment in the PB170 course. The topic I 
 ---
 
 ## 1. Architecture
-The CPU has an 8-bit address and data space. It has access to four general-purpose registers, labeled A–D, and several special registers, such as the Instruction Register, Accumulator, Flag Register, and Program Counter. An EEPROM with an 8-bit address and data space is also connected to the CPU.
+The CPU has an 8-bit address and data space. It has access to five general-purpose registers, labeled A–E, and several special registers, such as the Instruction Register, Accumulator, Flag Register, and Program Counter. An EEPROM with an 8-bit address and data space is also connected to the CPU.
 
 The CLK signal can be connected either to a clock component (currently set to 10 Hz) or to a simple button, which allows stepping through each clock cycle manually.
 

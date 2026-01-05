@@ -24,7 +24,7 @@
       "name": "var.cpu"
     },
     {
-      "match": "\\b(A|B|C|D|ACC)\\b",
+      "match": "\\b(A|B|C|D|E|ACC)\\b",
       "name": "register.cpu"
     },
     {

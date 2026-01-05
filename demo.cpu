@@ -1,0 +1,39 @@
+//HEAD -> 124 BODY -> 59
+var head 126
+var body 59
+
+MVA head
+MOV ACC B
+MVA body
+MOV ACC C
+INC E
+
+:loop
+INC E
+MOV B A
+MOV C B
+INC E
+
+INC E
+MOV A ACC
+MOV B A
+INC E
+
+INC E
+MOV ACC D
+MOV A ACC
+INC E
+
+INC E
+MOV D C
+MOV ACC D
+INC E
+
+INC E
+MOV C B
+MOV D C
+INC E
+
+JMP loop
+
+HLT
