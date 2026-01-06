@@ -30,22 +30,24 @@ STA 8
 MVA 246
 STA 9
 //CODE
-var variable 10
+var variable 9
 
 MVA variable //you type the num to count down from here
-MOV ACC A
 
 :loop
-DEC A
-
+MOV ACC A
 LDA A
 MOV ACC D
+INC E
+INC E
+NOP
+NOP
+MOV A ACC
+DEC ACC
 
 JZN loop
+LDA ACC
+MOV ACC D
+INC E
+INC E
 HLT 
-
-// MVA 5
-// INC B
-// STA 10
-// LDA 10
-// HLT
