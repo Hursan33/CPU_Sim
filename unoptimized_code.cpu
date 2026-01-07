@@ -1,4 +1,4 @@
-MVA 10
+MVA 5
 
 :loop
 SUB 1
@@ -6,14 +6,18 @@ SUB 1
 //0
 JZN one
 MVA 252
-MOV A D
+MOV ACC D
+INC E
+INC E
 HLT
 
 :one
 SUB 1
 JZN two
 MVA 96
-MOV A D
+MOV ACC D
+INC E
+INC E
 MVA 1
 JMP loop
 
@@ -21,7 +25,9 @@ JMP loop
 SUB 1
 JZN three
 MVA 218
-MOV A D
+MOV ACC D
+INC E
+INC E
 MVA 2
 JMP loop
 
@@ -29,7 +35,9 @@ JMP loop
 SUB 1
 JZN four
 MVA 242
-MOV A D
+MOV ACC D
+INC E
+INC E
 MVA 3
 JMP loop
 
@@ -37,7 +45,9 @@ JMP loop
 SUB 1
 JZN five
 MVA 102
-MOV A D
+MOV ACC D
+INC E
+INC E
 MVA 4
 JMP loop
 
@@ -45,7 +55,9 @@ JMP loop
 SUB 1
 JZN six
 MVA 182
-MOV A D
+MOV ACC D
+INC E
+INC E
 MVA 5
 JMP loop
 
@@ -53,7 +65,9 @@ JMP loop
 SUB 1
 JZN seven
 MVA 190
-MOV A D
+MOV ACC D
+INC E
+INC E
 MVA 6
 JMP loop
 
@@ -61,7 +75,9 @@ JMP loop
 SUB 1
 JZN eight
 MVA 224
-MOV A D
+MOV ACC D
+INC E
+INC E
 MVA 7
 JMP loop
 
@@ -69,7 +85,7 @@ JMP loop
 SUB 1
 JZN nine
 MVA 254
-MOV A D
+MOV ACC D
 MVA 8
 JMP loop
 
@@ -77,11 +93,15 @@ JMP loop
 SUB 1
 JZN err
 MVA 246
-MOV A D
+MOV ACC D
+INC E
+INC E
 MVA 9
 JMP loop
 
 :err
 MVA 158
-MOV A D
+MOV ACC D
+INC E
+INC E
 HLT
